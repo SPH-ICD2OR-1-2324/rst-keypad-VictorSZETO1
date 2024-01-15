@@ -36,7 +36,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             if (Selections[4] != 1) {
                 sprites.destroy(symbols[4])
             } else {
-                list2.unshift(list2[4])
+                list2.unshift(symbols[4])
             }
             if (Selections[3] != 1) {
                 sprites.destroy(symbols[3])
