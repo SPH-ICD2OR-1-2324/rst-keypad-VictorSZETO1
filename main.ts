@@ -2,10 +2,12 @@ namespace SpriteKind {
     export const UI = SpriteKind.create()
     export const answear = SpriteKind.create()
 }
+// moves curser
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     curY = Math.max(0, curY - 1)
     UpdateCursor()
 })
+// this allows you to put all symbols in the proper places 
 function InitKeys () {
     while (index <= keypadList.length - 1) {
         mySprite = sprites.create(keypadList[index], SpriteKind.UI)
@@ -18,11 +20,11 @@ function UpdateCursor () {
     cursorSprite.left = curX * 23
     cursorSprite.top = curY * 31
 }
+// (find colom will be explained in the find colom function) add answaers to another list so they don't get erased after 
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (SelectedCount == 4) {
         find_colom()
         if (incol1 == 4) {
-            game.splash("col1")
             if (Selections[6] != 1) {
                 sprites.destroy(symbols[6])
             } else {
@@ -63,7 +65,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (incol2 == 4) {
-            game.splash("col2")
             if (Selections[10] != 1) {
                 sprites.destroy(symbols[10])
             } else {
@@ -104,7 +105,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (incol3 == 4) {
-            game.splash("col3")
             if (Selections[9] != 1) {
                 sprites.destroy(symbols[9])
             } else {
@@ -145,7 +145,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (incol4 == 4) {
-            game.splash("col4")
             if (Selections[18] != 1) {
                 sprites.destroy(symbols[18])
             } else {
@@ -186,7 +185,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (incol5 == 4) {
-            game.splash("col5")
             if (Selections[22] != 1) {
                 sprites.destroy(symbols[22])
             } else {
@@ -227,7 +225,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (incol6 == 4) {
-            game.splash("col6")
             if (Selections[26] != 1) {
                 sprites.destroy(symbols[26])
             } else {
@@ -267,6 +264,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             setuporder()
             reset_value()
         }
+        // displays if invalid input 
         if (sprites.allOfKind(SpriteKind.answear).length == 0) {
             list2 = []
             scene.setBackgroundImage(bgImage)
@@ -277,6 +275,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
+// shows the order  of the answer once recived 
 function setuporder () {
     for (let value of list2) {
         mySprite = sprites.create(img`
@@ -302,6 +301,7 @@ function setuporder () {
         makelocal += 1
     }
 }
+// sets up selections by changing varibles 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     current = curY * 7 + curX
     Selections[current] = Selections[current] * -1
@@ -317,6 +317,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         keypadList[current].replace(7, 0)
     }
 })
+// determines the Colom via giving all the celoms variables and determines it by choosing the highest variable 
 function find_colom () {
     if (Selections[0] == 1) {
         incol1 += 1
@@ -415,10 +416,12 @@ function find_colom () {
         incol6 += 1
     }
 }
+// moves curser
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     curX = Math.max(0, curX - 1)
     UpdateCursor()
 })
+// clrears the screen by wiping all the ui but leaving the selections in list two
 function clearScreen () {
     sprite_list = sprites.allOfKind(SpriteKind.UI)
     for (let value of list2) {
@@ -463,6 +466,7 @@ function InitCursor () {
         `, SpriteKind.UI)
     UpdateCursor()
 }
+// on reset resets vairbles 
 function reset_value () {
     incol1 = 0
     incol2 = 0
@@ -471,6 +475,7 @@ function reset_value () {
     incol5 = 0
     incol6 = 0
 }
+// moves curser
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (curY < 3) {
         curX = Math.min(6, curX + 1)
@@ -479,6 +484,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     }
     UpdateCursor()
 })
+// moves curser
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (curX == 6) {
         curY = Math.min(2, curY + 1)
@@ -488,6 +494,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     UpdateCursor()
 })
 function InitArray () {
+    // all symbols have a varible to determine if their sleected negative not positive is 
     Selections = [
     -1,
     -1,
@@ -521,6 +528,8 @@ function InitArray () {
 sprites.onCreated(SpriteKind.UI, function (sprite) {
     sprite.setFlag(SpriteFlag.Ghost, true)
 })
+// sers up screen 
+// 
 let sprite_list: Sprite[] = []
 let current = 0
 let makelocal = 0
