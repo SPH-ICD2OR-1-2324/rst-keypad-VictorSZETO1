@@ -1,0 +1,24 @@
+{
+    "name": "rst-keypad-victorszeto1-github",
+    "dependencies": {
+        "device": "*",
+        "rst-keypad-victorszeto1": "github:sph-icd2or-1-2324/rst-keypad-victorszeto1"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.12.46",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
+}
