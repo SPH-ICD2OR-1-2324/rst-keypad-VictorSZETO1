@@ -22,7 +22,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     if (SelectedCount == 4) {
         find_colom()
         if (incol1 == 4) {
-            game.splash("col1")
             if (Selections[6] != 1) {
                 sprites.destroy(symbols[6])
             } else {
@@ -63,7 +62,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (incol2 == 4) {
-            game.splash("col2")
             if (Selections[10] != 1) {
                 sprites.destroy(symbols[10])
             } else {
@@ -104,7 +102,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (incol3 == 4) {
-            game.splash("col3")
             if (Selections[9] != 1) {
                 sprites.destroy(symbols[9])
             } else {
@@ -145,7 +142,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (incol4 == 4) {
-            game.splash("col4")
             if (Selections[18] != 1) {
                 sprites.destroy(symbols[18])
             } else {
@@ -186,7 +182,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (incol5 == 4) {
-            game.splash("col5")
             if (Selections[22] != 1) {
                 sprites.destroy(symbols[22])
             } else {
@@ -227,7 +222,6 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (incol6 == 4) {
-            game.splash("col6")
             if (Selections[26] != 1) {
                 sprites.destroy(symbols[26])
             } else {
@@ -268,7 +262,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
             reset_value()
         }
         if (sprites.allOfKind(SpriteKind.answear).length == 0) {
-            list2 = []
+            list2 = sprites.allOfKind(SpriteKind.answear)
             scene.setBackgroundImage(bgImage)
             InitKeys()
             symbols = sprites.allOfKind(SpriteKind.UI)
