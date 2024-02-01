@@ -1,17 +1,14 @@
 {
-    "name": "KeypadDefuserTemplate",
-    "description": "",
+    "name": "rst-keypad-victorszeto1-github",
     "dependencies": {
         "device": "*",
-        "color": "*",
-        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.2.1"
+        "rst-keypad-victorszeto1": "github:sph-icd2or-1-2324/rst-keypad-victorszeto1"
     },
     "files": [
         "main.blocks",
         "main.ts",
         "README.md",
-        "symbols.ts",
-        "main.py"
+        "assets.json"
     ],
     "testFiles": [
         "test.ts"
